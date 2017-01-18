@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ui.MainActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/backgroung_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/mirantenoite"
+        android:scaleType="centerCrop"
+        android:alpha="1"
+        android:tintMode="multiply"
+        />
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Android Meetup"
+        android:textColor="@color/white"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/textview_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_title"
+        android:text="Belo Horizonte"
+        android:textColor="@color/white"
+        android:layout_marginLeft="16dp"
+        android:textSize="18sp"/>
+
+    <FrameLayout
+        android:id="@+id/framelayout_splash_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textview_subtitle"/>
+
+</RelativeLayout>

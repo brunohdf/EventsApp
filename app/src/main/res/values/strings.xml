@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Android Meetup BH</string>
+    <string name="sign_up">Começar</string>
+    <string name="fullname">Nome Completo</string>
+    <string name="email">e-mail</string>
+    <string name="send">enviar</string>
+    <string name="thank_you">Obrigado!</string>
+    <string name="sending">Enviando...</string>
+    <string name="err_msg_fullname">Informe seu nome completo</string>
+    <string name="err_msg_email">Informe um e-mail válido</string>
+    <string name="punch_line">Android Meetup Talks, debates, live coding, coding dojos e networking</string>
+    <string name="loading_text">carregando...</string>
+    <plurals name="enrolled_users_number">
+        <item quantity="one">%1$d inscrito</item>
+        <item quantity="other">%1$d inscritos</item>
+    </plurals>
+    <string name="register">Inscrever</string>
+    <string name="event_location">Local: %1$s</string>
+    <string name="event_date">Date: %1$s</string>
+    <string name="event_time">Horário: %1$s</string>
+    <string name="schedule">Programação</string>
+    <string name="name">nome</string>
+    <string name="title">Android Meetup</string>
+    <string name="subtitle">Belo Horizonte</string>
+</resources>

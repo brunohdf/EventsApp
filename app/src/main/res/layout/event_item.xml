@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:focusable="true"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_border_rigth_odd"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <TextView
+            android:id="@+id/textview_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="31/12/2016"
+            android:layout_gravity="center"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/textview_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="19:00"
+            android:layout_gravity="center"
+            android:paddingBottom="8dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/linearlayout_schedule"
+        android:layout_alignParentTop="true"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:text="meetup #01"
+        android:textAllCaps="true"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/textview_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/linearlayout_schedule"
+        android:layout_below="@id/textview_title"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:text="hotmart"
+        android:paddingLeft="8dp"/>
+
+    <TextView
+        android:id="@+id/textview_enrolled_users"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textview_subtitle"
+        android:layout_below="@id/textview_title"
+        android:visibility="gone"
+        android:textSize="12dp"
+        android:paddingLeft="2dp"/>
+
+
+</RelativeLayout>

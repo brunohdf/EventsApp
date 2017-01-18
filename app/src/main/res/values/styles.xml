@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextLabel" parent="AppTheme">
+        <item name="android:textColorHint">@color/dark_gray</item>
+        <item name="colorAccent">@color/dark_gray</item>
+        <item name="colorControlNormal">@color/dark_gray</item>
+        <item name="colorControlActivated">@color/dark_gray</item>
+    </style>
+
+    <style name="TextLabelError" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorError</item>
+    </style>
+</resources>

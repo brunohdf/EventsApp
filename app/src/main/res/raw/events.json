@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "title": "Meetup #01",
+    "date": "12/05/2016",
+    "time": "19:00",
+    "location" : "CI&T",
+    "description": "No nosso primeiro encontro queremos conhecer os droiders e começar um nivelamento do conhecimento, ajudando aqueles que querem dar os primeiros passos no mundo do Android. E para os mais experientes poderão trocar conhecimento através do Fishbowl.",
+    "schedule" : [
+      {
+        "title": "Android, como começar?",
+        "presenter" : "Felipe Arimatéia @ CI&T"
+      },
+      {
+        "title": "Fishbowl: Tudo aquilo que você sempre quis perguntar sobre Android!!!",
+        "presenter" : "Comunidade"
+      }
+    ],
+    "enrolledUsers" : 17
+  },
+  {
+    "id": 2,
+    "title": "Meetup #02",
+    "date": "09/06/2016",
+    "time": "19:00",
+    "location" : "ThoughtWorks",
+    "description": "Com o objetivo de engajar a comunidade de desenvolvedores Android em Belo Horizonte neste Meetup vamos falar sobre:",
+    "schedule" : [
+      {
+        "title": "Workflow de desenvolvimento Android integrado a um BFF",
+        "presenter" : "Rodolfo Pereira @ThoughtWorks, Elayne Ferreira @ThoughtWorks"
+      },
+      {
+        "title": "Entrega contínua em aplicações móveis",
+        "presenter" : "Guilherme Castro @ AppProva, Lucas Ferraz @ AppProva"
+      }
+    ],
+    "enrolledUsers" : 28
+
+  },
+  {
+    "id": 3,
+    "title": "Meetup #03",
+    "date": "12/07/2016",
+    "time": "19:00",
+    "location" : "CI&T",
+    "description": "Olá Droiders! Esse mês teremos o Meetup #03!\nCom o objetivo de engajar a comunidade de desenvolvedores Android em Belo Horizonte neste Meetup vamos falar sobre:",
+    "schedule" : [
+      {
+        "title": "RxJava - Morte a AsyncTask",
+        "presenter" : "Clêrton Leal @ Avenue Code"
+      },
+      {
+        "title": "Introdução a Animações no Android",
+        "presenter" : "Anderson Ribeiro e Silva @ CI&T"
+      }
+    ],
+    "enrolledUsers" : 23
+  },
+  {
+    "id": 4,
+    "title": "Meetup #04",
+    "date": "12/05/2016",
+    "time": "19:00",
+    "location" : "CI&T",
+    "description": "Olá Droiders! Esse mês teremos o Meetup #04!\nCom o objetivo de engajar a comunidade de desenvolvedores Android em Belo Horizonte neste Meetup vamos falar sobre:",
+    "schedule" : [
+      {
+        "title": "Construindo Aplicações Android com Firebase",
+        "presenter" : "Felipe Arimatéia @ CI&T"
+      },
+      {
+        "title": "Android Layouts",
+        "presenter" : "Fabiano França @ CI&T"
+      }
+    ],
+    "enrolledUsers" : 1
+  },
+  {
+    "id": 5,
+    "title": "Meetup #05",
+    "date": "12/05/2016",
+    "time": "19:00",
+    "location" : "PUC Minas Praça da Liberdade",
+    "description": "Olá Droiders,\nNesse mês nosso encontro será junto com a comunidade CocoaHeads BH e será realizado na PUC com presença de alunos da Universidade.",
+    "schedule" : [
+      {
+        "title": "Migrando para o desenvolvimento mobile",
+        "presenter" : "Salmo Junior @ CI&T"
+      },
+      {
+        "title": "UX Fast Food: Hambúrguer e outros mitos",
+        "presenter" : "Danielle Torrico"
+      },
+      {
+        "title": "Android: caminhos e possibilidades",
+        "presenter" : "Felipe Arimateia @ CI&T"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Meetup #06",
+    "date": "24/10/2016",
+    "time": "19:00",
+    "location" : "CI&T",
+    "description": "Olá Droiders! Neste mês teremos nosso Meetup #06!",
+    "schedule" : [
+      {
+        "title": "Desenvolvedores trabalham melhor com Designers",
+        "presenter" : "Ana Paula Silva @ CI&T, Pedro Guedes @ Lalubema Sistemas"
+      },
+      {
+        "title": "Android: Animações e UI",
+        "presenter" : "Felipe Magalhães @ eMotion Digital"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Meetup #07",
+    "date": "29/11/2016",
+    "time": "19:00",
+    "location" : "Hotmart",
+    "description": "Olá Droiders! Para encerrar Novembro, teremos nosso Meetup #07!",
+    "schedule" : [
+      {
+        "title": "Acessibilidade",
+        "presenter" : "Jean Pimentel @ CI&T"
+      },
+      {
+        "title": "Câmera Android e suas limitações",
+        "presenter" : "João Nogueira - @ Hotmart"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Meetup #08",
+    "date": "29/01/2017",
+    "time": "19:00",
+    "location" : "CI&T",
+    "description": "Olá Droiders! Inciando o ano de 2017 teremos nosso Meetup #08!",
+    "schedule" : [
+      {
+        "title": "Palestra 1",
+        "presenter" : "João da Silva @ CI&T"
+      },
+      {
+        "title": "Palestra 2",
+        "presenter" : "Maria da silva - @ CI&T"
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.example.eventpsapp"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+final espressoVersion = '2.2.2'
+final supportVersion = '24.2.0'
+final butterknifeVersion = '8.4.0'
+final gsonVersion = '2.2.4'
+final eventbusVersion = '3.0.0'
+final junitVersion = '4.12'
+final testRunnerVersion = '0.5'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    compile "com.google.code.gson:gson:$gsonVersion"
+    compile "org.greenrobot:eventbus:$eventbusVersion"
+    testCompile "junit:junit:$junitVersion"
+
+    // Espresso
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile "com.android.support.test:runner:$testRunnerVersion"
+    androidTestCompile "com.android.support:support-annotations:$supportVersion"
+
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'design'
+    }
+}
