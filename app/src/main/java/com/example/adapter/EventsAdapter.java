@@ -31,7 +31,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         private TextView subtitle;
         private RelativeLayout container;
         private LinearLayout schedule;
-        private TextView registrations;
 
         public EventsViewHolder(View view) {
             super(view);
@@ -41,7 +40,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
             subtitle = (TextView) view.findViewById(R.id.textview_subtitle);
             container = (RelativeLayout) view.findViewById(R.id.relativelayout_container);
             schedule = (LinearLayout) view.findViewById(R.id.linearlayout_schedule);
-            registrations = (TextView) view.findViewById(R.id.textview_enrolled_users);
         }
     }
  
@@ -67,16 +65,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         holder.subtitle.setText(eventModel.getLocation());
         holder.date.setText(eventModel.getDate());
         holder.hour.setText(eventModel.getTime());
-
-        int rNumber = eventModel.getEnrolledUsers();
-        if (rNumber > 0) {
-            if (rNumber > 0) {
-                holder.registrations.setVisibility(View.VISIBLE);
-                holder.registrations.setText(String.format(mContext.getResources().getQuantityString(R.plurals.enrolled_users_number, rNumber, rNumber)));
-            }
-        } else {
-            holder.registrations.setVisibility(View.GONE);
-        }
 
         if (position % 2 ==0) {
             holder.container.setBackgroundColor(ContextCompat.getColor(mContext, R.color.ligth_gray));

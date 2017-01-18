@@ -8,11 +8,9 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.eventsapp.R;
 
@@ -22,6 +20,8 @@ public class RegisterDialog extends DialogFragment {
     private EditText mFullname;
     private TextInputLayout mEmailInputLayout;
     private EditText mEmail;
+
+    private RegisterTaskListener mListener;
 
     @NonNull
     @Override
@@ -76,7 +76,7 @@ public class RegisterDialog extends DialogFragment {
 
         boolean isValid = validateFullName() && validateEmail();
         if (isValid) {
-            Toast.makeText(getContext(), "Obrigado!", Toast.LENGTH_SHORT).show();
+            mListener.afterRegister();
         }
 
         return isValid;
@@ -115,5 +115,13 @@ public class RegisterDialog extends DialogFragment {
         }
 
         return true;
+    }
+
+    public void setRegisterTaskListener(RegisterTaskListener listener) {
+        mListener = listener;
+    }
+
+    public interface RegisterTaskListener {
+        void afterRegister();
     }
 }

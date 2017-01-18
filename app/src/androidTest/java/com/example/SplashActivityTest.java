@@ -33,32 +33,22 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class SplashActivityTest {
 
-    // activity a ser testada
     @Rule
-    public ActivityTestRule<SplashActivity> mActivityRule = new ActivityTestRule<>(SplashActivity.class, false, true);
-
-    @Before
-    public void tearUp() {
-    }
-
-    @After
-    public void tearDown(){
-    }
+    public ActivityTestRule<SplashActivity> mActivityRule = new ActivityTestRule(SplashActivity.class, false, true);
 
     @Test
     public void shouldDisplayInitialState() {
-        Log.w("TESTE", " shouldDisplayInitialState");
         // id unico, situacao ideal!
         onView(withId(R.id.textview_punch_line)).check(matches(isDisplayed()));
         onView(withId(R.id.button_signup)).check(matches(isDisplayed()));
 
-        onView(withText(R.string.punch_line)).check(matches(isDisplayed()));
-        onView(withText(R.string.sign_up)).check(matches(isDisplayed()));
         onView(withText(R.string.title)).check(matches(isDisplayed()));
         onView(withText(R.string.subtitle)).check(matches(isDisplayed()));
+        onView(withText(R.string.punch_line)).check(matches(isDisplayed()));
+        onView(withText(R.string.sign_up)).check(matches(isDisplayed()));
 
-        // por boa pratica,e ate mesmo por semantica, nao utilizar onView para assercoes, preferor .check()
         onView(withId(R.id.textview_punch_line)).check(matches(withText(R.string.punch_line)));
+
     }
 
     @Test

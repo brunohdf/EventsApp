@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.custom.RegisterDialog;
 import com.example.events.ReplaceFragmentEvent;
@@ -26,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DetailFragment extends Fragment implements SendTask.SendTaskListener {
+public class DetailFragment extends Fragment implements SendTask.SendTaskListener, RegisterDialog.RegisterTaskListener {
 
     EventModel event;
 
@@ -48,6 +49,9 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
     @BindView(R.id.textview_time)
     TextView time;
 
+    @BindView(R.id.button_register)
+    TextView register;
+
     @BindView(R.id.linearlayout_schedule)
     LinearLayout scheduleContainer;
 
@@ -65,6 +69,8 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
 
+    private  int mRegistrationNumber;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -74,11 +80,8 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
         setupProgressDialog();
 
         title.setText(event.getTitle());
-        int rNumber = event.getEnrolledUsers();
-        if (rNumber > 0) {
-            enrolledUsers.setVisibility(View.VISIBLE);
-            enrolledUsers.setText(String.format(getContext().getResources().getQuantityString(R.plurals.enrolled_users_number, rNumber, rNumber)));
-        }
+        mRegistrationNumber = event.getEnrolledUsers();
+        setupEnrolledUsers(mRegistrationNumber);
         description.setText(event.getDescription());
         location.setText(getContext().getString(R.string.event_location, event.getLocation()));
         date.setText(getContext().getString(R.string.event_date, event.getDate()));
@@ -90,6 +93,13 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
         }
 
         return view;
+    }
+
+    private void setupEnrolledUsers(int qt) {
+        if (qt > 0) {
+            enrolledUsers.setVisibility(View.VISIBLE);
+            enrolledUsers.setText(String.format(getContext().getResources().getQuantityString(R.plurals.enrolled_users_number, qt, qt)));
+        }
     }
 
 
@@ -108,6 +118,7 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
     @SuppressWarnings("unused")
     public void register() {
         RegisterDialog dialog = new RegisterDialog();
+        dialog.setRegisterTaskListener(this);
         dialog.show(getActivity().getSupportFragmentManager(), "RegisterDialog");
     }
 
@@ -117,5 +128,13 @@ public class DetailFragment extends Fragment implements SendTask.SendTaskListene
         progressDialog.dismiss();
         FinishFragment fragment = new FinishFragment();
         EventBus.getDefault().post(new ReplaceFragmentEvent(fragment, true));
+    }
+
+    @Override
+    public void afterRegister() {
+        Toast.makeText(getContext(), "Obrigado!", Toast.LENGTH_SHORT).show();
+        register.setEnabled(false);
+        register.setAlpha(.5f);
+        setupEnrolledUsers(mRegistrationNumber + 1);
     }
 }
