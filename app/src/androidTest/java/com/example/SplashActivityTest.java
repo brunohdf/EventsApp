@@ -34,7 +34,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class SplashActivityTest {
 
     @Rule
-    public ActivityTestRule<SplashActivity> mActivityRule = new ActivityTestRule(SplashActivity.class, false, true);
+    public ActivityTestRule<SplashActivity> mActivityRule =
+            new ActivityTestRule(SplashActivity.class, false, true);
 
     @Test
     public void shouldDisplayInitialState() {
@@ -53,7 +54,6 @@ public class SplashActivityTest {
 
     @Test
     public void shouldStartHomeScreen() {
-        Log.w("TESTE", " shouldGoHome");
         // inicia gravao intent
         Intents.init();
         Matcher<Intent> matcher = hasComponent(HomeActivity.class.getName());

@@ -35,6 +35,7 @@ import static android.support.test.espresso.intent.Intents.intending;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtraWithKey;
 import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
 import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -89,6 +90,8 @@ public class HomeActivityTest {
 
     @Test
     public void shouldDisplayEventData() {
+
+        // assercoes com uso de RecyclerViiewActions
         int position = 0;
         onView(withId(R.id.recyclerview_events))
                 .perform(scrollToPosition(position))
@@ -96,6 +99,12 @@ public class HomeActivityTest {
                 .check(matches(atPosition(position, hasDescendant(withText("19:00")))))
                 .check(matches(atPosition(position, hasDescendant(withText("CI&T")))))
                 .check(matches(atPosition(position, hasDescendant(withText("Meetup #01")))));
+
+//        onView(allOf(withId(R.id.relativelayout_container), hasDescendant(withText("Meetup #01"))))
+//                .check(matches(isDisplayed()));
+
+        onView(allOf(withId(R.id.textview_title), withText("Meetup #01"))).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.textview_subtitle), hasSibling(withText("Meetup #01")))).check(matches(isDisplayed()));
 
 
         position = 7;
@@ -106,11 +115,18 @@ public class HomeActivityTest {
                 .check(matches(atPosition(position, hasDescendant(withText("CI&T")))))
                 .check(matches(atPosition(position, hasDescendant(withText("Meetup #08")))));
 
-
+        // assecoes diretas sobre os itens visiveis
         onView(allOf(
                 withText("Meetup #08"),
                 withTextColor(ContextCompat.getColor(mActivityRule.getActivity(), R.color.black)))
         ).check(matches(isDisplayed()));
+
+
+        onView(withText("Meetup #08"))
+                .check(
+                        matches(withTextColor(ContextCompat.getColor(mActivityRule.getActivity(),R.color.black)))
+                );
+
     }
 
     // custom macther sem uso da lib hamcrest
