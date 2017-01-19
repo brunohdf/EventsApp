@@ -22,4 +22,6 @@
     <string name="name">nome</string>
     <string name="title">Android Meetup</string>
     <string name="subtitle">Belo Horizonte</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancelar</string>
 </resources>

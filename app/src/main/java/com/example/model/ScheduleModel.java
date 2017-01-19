@@ -12,6 +12,11 @@ public class ScheduleModel implements Parcelable {
 
     }
 
+    public ScheduleModel(String title, String presenter) {
+        this.title = title;
+        this.presenter = presenter;
+    }
+
     public String getTitle() {
         return title;
     }

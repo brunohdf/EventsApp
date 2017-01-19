@@ -28,8 +28,8 @@ public class RegisterDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(R.layout.register_dialog)
-                .setPositiveButton("ok", null)
-                .setNegativeButton("cancelar", null)
+                .setPositiveButton(R.string.ok, null)
+                .setNegativeButton(R.string.cancel, null)
                 .setCancelable(false);
 
         return builder.create();
