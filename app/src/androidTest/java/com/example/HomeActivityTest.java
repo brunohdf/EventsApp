@@ -27,6 +27,7 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition;
@@ -65,6 +66,7 @@ public class HomeActivityTest {
         onView(isAssignableFrom(Toolbar.class))
                 .check(matches(withToolBarTitle(
                         is((CharSequence) mActivityRule.getActivity().getString(R.string.app_name)))
+
                         // mesma assercao acima por meio de String.equals
                         //mActivityRule.getActivity().getString(R.string.app_name))
                 ));
@@ -95,7 +97,8 @@ public class HomeActivityTest {
         int position = 0;
         onView(withId(R.id.recyclerview_events))
                 .perform(scrollToPosition(position))
-                .check(matches(atPosition(position, hasDescendant(withText("12/05/2016")))))
+                .check(matches(atPosition(position, hasDescendant(withText("12/05/2016")
+                ))))
                 .check(matches(atPosition(position, hasDescendant(withText("19:00")))))
                 .check(matches(atPosition(position, hasDescendant(withText("CI&T")))))
                 .check(matches(atPosition(position, hasDescendant(withText("Meetup #01")))));

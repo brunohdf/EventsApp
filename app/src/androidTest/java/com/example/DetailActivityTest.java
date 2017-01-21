@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.widget.TextView;
 
 import com.example.eventsapp.R;
 import com.example.model.EventModel;
@@ -21,13 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -42,25 +46,6 @@ public class DetailActivityTest {
     public ActivityTestRule<DetailActivity> mActivityRule = new ActivityTestRule(DetailActivity.class, false, false);
 
     EventModel event;
-
-    @Test
-    public void shouldDisplayEventData() {
-
-        EventModel event = getSampleEventDay();
-
-        Intent intent = new Intent();
-        intent.putExtra(DetailActivity.PARAM_EVENT, event);
-
-        mActivityRule.launchActivity(intent);
-
-        onView(withText("Droid Talks S02E01")).check(matches(isDisplayed())).perform(scrollTo());
-        // ..
-        onView(
-            allOf(
-                withId(R.id.linearlayout_schedule_container), hasDescendant(withText("Introdução a Testes de UI com Espresso"))
-            )
-        ).check(matches(isDisplayed()));
-    }
 
     @Test
     public void shouldRegisterAnEvent() {
@@ -82,7 +67,47 @@ public class DetailActivityTest {
         onView(withId(R.id.button_register)).check(matches(not(isEnabled())));
 
         onView(withText("2 inscritos")).perform(scrollTo()).check(matches(isDisplayed()));
+    }
 
+    @Test
+    public void shouldValidadeEmailAddress() {
+
+        EventModel event = getSampleEventDay();
+
+        Intent intent = new Intent();
+        intent.putExtra(DetailActivity.PARAM_EVENT, event);
+
+        mActivityRule.launchActivity(intent);
+        onView(withId(R.id.button_register)).check(matches(isEnabled())).perform(scrollTo(), click());
+        onView(withId(R.id.edittext_fullname)).perform(typeText("Jose Silva"));
+        onView(withId(R.id.edittext_email)).perform(typeText("um email invalido"));
+        onView(withText(R.string.ok)).perform(click());
+
+        onView(withText("Informe um e-mail válido")).check(matches(isDisplayed()));
+
+        onView(withId(R.id.edittext_email)).perform(clearText(), typeText("jose@gmail.com"));
+        onView(withText(R.string.ok)).perform(click());
+
+        onView(withText("Informe um e-mail válido")).check(doesNotExist());
+    }
+
+    @Test
+    public void shouldDisplayEventData() {
+
+        EventModel event = getSampleEventDay();
+
+        Intent intent = new Intent();
+        intent.putExtra(DetailActivity.PARAM_EVENT, event);
+
+        mActivityRule.launchActivity(intent);
+
+        onView(withText("Droid Talks S02E01")).check(matches(isDisplayed())).perform(scrollTo());
+        // ..
+        onView(
+            allOf(
+                withId(R.id.linearlayout_schedule_container), hasDescendant(withText("Introdução a Testes de UI com Espresso"))
+            )
+        ).check(matches(isDisplayed()));
     }
 
     @NonNull
