@@ -57,16 +57,18 @@ public class HomeActivityTest {
                         isAssignableFrom(TextView.class),
                         withParent(isAssignableFrom(Toolbar.class))
                 )
-        ).check(matches(withText(R.string.app_name)));
+        ).check(matches(withText(R.string.app_name)));it git
 
         onView(withId(R.id.recyclerview_events)).check(matches(hasDescendant(withText("Meetup #01"))));
 
         onView(isAssignableFrom(Toolbar.class))
-                .check(matches(withToolBarTitle(
-                        is((CharSequence) mActivityRule.getActivity().getString(R.string.app_name)))
-                        // mesma assercao acima por meio de String.equals
-                        //mActivityRule.getActivity().getString(R.string.app_name))
-                ));
+            .check(matches(
+                withToolBarTitle(
+                    is(mActivityRule.getActivity().getString(R.string.app_name))g
+                    // mesma assercao acima por meio de String.equals
+                    // mActivityRule.getActivity().getString(R.string.app_name)
+                ))
+            );
 
     }
 
@@ -136,7 +138,7 @@ public class HomeActivityTest {
     }
 
     // mesmo custom macher com uso da lib hamcrest
-    private static Matcher<View> withToolBarTitle(final Matcher<CharSequence> textMatcher) {
+    private static Matcher<View> withToolBarTitle(final Matcher<String> textMatcher) {
 
         return new BoundedMatcher<View, Toolbar>(Toolbar.class) {
 
