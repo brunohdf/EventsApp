@@ -53,18 +53,18 @@ public class HomeActivityTest {
     public void shouldDisplayInitialState() {
 
         onView(
-                allOf(
-                        isAssignableFrom(TextView.class),
-                        withParent(isAssignableFrom(Toolbar.class))
-                )
-        ).check(matches(withText(R.string.app_name)));it git
+            allOf(
+                isAssignableFrom(TextView.class),
+                withParent(isAssignableFrom(Toolbar.class))
+            )
+        ).check(matches(withText(R.string.app_name)));
 
         onView(withId(R.id.recyclerview_events)).check(matches(hasDescendant(withText("Meetup #01"))));
 
         onView(isAssignableFrom(Toolbar.class))
             .check(matches(
                 withToolBarTitle(
-                    is(mActivityRule.getActivity().getString(R.string.app_name))g
+                    is(mActivityRule.getActivity().getString(R.string.app_name))
                     // mesma assercao acima por meio de String.equals
                     // mActivityRule.getActivity().getString(R.string.app_name)
                 ))
@@ -91,6 +91,8 @@ public class HomeActivityTest {
 
     @Test
     public void shouldDisplayEventData() {
+
+        // assercoes com uso de RecyclerViiewActions
         int position = 0;
         onView(withId(R.id.recyclerview_events))
                 .perform(scrollToPosition(position))

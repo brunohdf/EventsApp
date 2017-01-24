@@ -7,15 +7,12 @@ import android.content.Intent;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
 
 import com.example.eventsapp.R;
 import com.example.ui.HomeActivity;
 import com.example.ui.SplashActivity;
 
 import org.hamcrest.Matcher;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +31,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class SplashActivityTest {
 
     @Rule
-    public ActivityTestRule<SplashActivity> mActivityRule = new ActivityTestRule(SplashActivity.class, false, true);
+    public ActivityTestRule<SplashActivity> mActivityRule =
+            new ActivityTestRule(SplashActivity.class, false, true);
 
     @Test
     public void shouldDisplayInitialState() {
@@ -53,7 +51,6 @@ public class SplashActivityTest {
 
     @Test
     public void shouldStartHomeScreen() {
-        Log.w("TESTE", " shouldGoHome");
         // inicia gravao intent
         Intents.init();
         Matcher<Intent> matcher = hasComponent(HomeActivity.class.getName());
